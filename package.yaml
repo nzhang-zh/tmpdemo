@@ -1,0 +1,28 @@
+name:                tmpdemo
+version:             0.1.0.0
+
+extra-source-files:
+- package.yaml
+
+dependencies:
+- base >= 4.7 && < 5
+- typed-process
+
+system-build-tools:
+- hello
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Lib
+
+executables:
+  tmpexe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tmpdemo
